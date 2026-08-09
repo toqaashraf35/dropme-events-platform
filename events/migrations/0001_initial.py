@@ -16,10 +16,12 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('machine_id', models.CharField(max_length=50)),
-                ('material_type', models.CharField(choices=[('PET', 'PET Plastic'), ('aluminum', 'Aluminum'), ('paper', 'Paper'), ('glass', 'Glass')], max_length=20)),
+                ('material_type', models.CharField(choices=[
+                 ('PET', 'PET Plastic'), ('aluminum', 'Aluminum'), ('paper', 'Paper'), ('glass', 'Glass')], max_length=20)),
                 ('item_count', models.PositiveIntegerField()),
                 ('event_timestamp', models.DateTimeField()),
-                ('status', models.CharField(choices=[('received', 'Received'), ('processed', 'Processed')], default='received', max_length=20)),
+                ('status', models.CharField(choices=[('received', 'Received'),
+                 ('processed', 'Processed')], default='received', max_length=20)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
             ],
         ),

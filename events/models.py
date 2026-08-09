@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Event(models.Model):
     class Status(models.TextChoices):
         RECEIVED = 'received', 'Received'
