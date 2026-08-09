@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Drop Me - Recycling Events</title>
+    <style>
+        body { font-family: sans-serif; margin: 2rem; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ccc; padding: 8px 12px; text-align: left; }
+        th { background: #f4f4f4; }
+        .received { color: #b8860b; }
+        .processed { color: #2e7d32; }
+    </style>
+</head>
+<body>
+    <h1>Recycling Events</h1>
+    <table>
+        <tr>
+            <th>Machine ID</th>
+            <th>Material Type</th>
+            <th>Item Count</th>
+            <th>Status</th>
+            <th>Event Time</th>
+        </tr>
+        {% for event in events %}
+        <tr>
+            <td>{{ event.machine_id }}</td>
+            <td>{{ event.material_type }}</td>
+            <td>{{ event.item_count }}</td>
+            <td class="{{ event.status }}">{{ event.status }}</td>
+            <td>{{ event.event_timestamp }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
