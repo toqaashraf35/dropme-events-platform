@@ -2,6 +2,7 @@ from rest_framework.views import APIView
 from django.db import connection
 from django.conf import settings
 import redis
+from django.shortcuts import render
 
 from .models import Event
 from .serializers import EventSerializer
@@ -77,3 +78,8 @@ class ReadyView(APIView):
         if healthy:
             return success_response(data=checks, message="Service is ready")
         return error_response(message="Service not ready", errors=checks, status_code=503)
+
+
+def events_dashboard(request):
+    events = Event.objects.all().order_by('-created_at')[:100]
+    return render(request, 'events/dashboard.html', {'events': events})
